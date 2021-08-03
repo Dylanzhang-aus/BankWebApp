@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Account>
+
+@{
+    ViewData["Title"] = "AccountView";
+}
+
+<h2>Accounts List:</h2>
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>@Html.DisplayNameFor(x => x.AccountNumber)</th>
+            <th>@Html.DisplayNameFor(x => x.AccountType)</th>
+            <th>@Html.DisplayNameFor(x => x.CustomerID)</th>
+            <th>@Html.DisplayNameFor(x => x.ModifyDate)</th>          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => a.AccountNumber)</td>
+                <td>@Html.DisplayFor(x => a.AccountType)</td>
+                <td>@Html.DisplayFor(x => a.CustomerID)</td>
+                <td>@Html.DisplayFor(x => a.ModifyDate)</td>
+                <td>
+                    <a asp-action="Lock" class="Lock" asp-route-id="@a.CustomerID">Lock</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="AdminView">Back</a>
+</div>

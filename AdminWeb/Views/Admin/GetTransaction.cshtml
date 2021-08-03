@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Transaction>
+
+@{
+    ViewData["Title"] = "GetTransaction";
+}
+<h2>Transaction Table:</h2>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Transaction Type</th>
+                <th>AccountNumber</th>
+                <th>DestAccountNumber</th>
+                <th>Amount</th>
+                <th>Comment</th>
+                <th>ModifyvDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr>
+                    <th scope="row"> @t.TransactionID</th>
+                    <th>@t.TransactionType</th>
+                    <th>@t.AccountNumber</th>
+                    <th>@t.DestAccountNumber</th>
+                    <th>@t.Amount.ToString("0.00")$</th>
+                    <th>@t.Comment</th>
+                    <th>@t.ModifyDate</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="AdminView">Back</a>
+</div>

@@ -1,0 +1,45 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Core.Common
+@model IPagedList<Transaction>
+@{
+    ViewData["Title"] = "ViewTransaction";
+    var accounts = (Account)ViewBag.Account;
+}
+@{
+    await Html.RenderPartialAsync("_HeadNavBar");
+}
+<div>
+    <h2>Transactions Details Account of: @accounts.AccountNumber (@accounts.AccountType)</h2>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(x => x[0].TransactionID)</th>
+            <th>@Html.DisplayNameFor(x => x[0].TransactionType)</th>
+            <th>@Html.DisplayNameFor(x => x[0].DestAccountNumber)</th>
+            <th>@Html.DisplayNameFor(x => x[0].Amount)</th>
+            <th>@Html.DisplayNameFor(x => x[0].Comment)</th>
+            <th>@Html.DisplayNameFor(x => x[0].ModifyDate)</th>
+        </tr>
+        @foreach (var order in Model)
+         {
+            <tr>
+                <td>@Html.DisplayFor(x => order.TransactionID)</td>
+                <td>@Html.DisplayFor(x => order.TransactionType)</td>
+                <td>@Html.DisplayFor(x => order.DestAccountNumber)</td>
+                <td>@Html.DisplayFor(x => order.Amount)</td>
+                <td>@Html.DisplayFor(x => order.Comment)</td>
+                <td>@Html.DisplayFor(x => order.ModifyDate)</td>
+            </tr>
+         }
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("ViewTransaction", new { page }),
+        new PagedListRenderOptions
+            {
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" }
+        })
+</div>
+<div>
+    <a asp-action="ViewAccount">Back to Accounts</a>
+</div>
+

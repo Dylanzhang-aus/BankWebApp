@@ -1,0 +1,50 @@
+﻿@model Dictionary<int,List<Transaction>>
+
+@{
+    ViewData["Title"] = "Search";
+}
+<div>
+    @foreach (int id in Model.Keys)
+    {
+        <a asp-action="PickTime" asp-route-id="@id" class="btn btn-primary">Search by period</a>
+        <h2>Customer ID: @id</h2>
+    }
+</div>
+<h2>Transaction List:</h2>
+<table class="table">
+    <thead>
+        @foreach (List<Transaction> l in Model.Values)
+        {          
+               <tr>
+                   <th>@Html.DisplayNameFor(x => l[0].TransactionID)</th>
+                   <th>@Html.DisplayNameFor(x => l[0].TransactionType)</th>
+                   <th>@Html.DisplayNameFor(x => l[0].AccountNumber)</th>
+                   <th>@Html.DisplayNameFor(x => l[0].DestAccountNumber)</th>
+                   <th>@Html.DisplayNameFor(x => l[0].Amount)</th>
+                   <th>@Html.DisplayNameFor(x => l[0].Comment)</th>
+                   <th>@Html.DisplayNameFor(x => l[0].ModifyDate)</th>
+              </tr>
+            
+        }
+    </thead>
+    <tbody>
+        @foreach (List<Transaction> l in Model.Values)
+        {
+            foreach (Transaction t in l)
+            {
+                 <tr>
+                     <td>@Html.DisplayFor(x => t.TransactionID)</td>
+                     <td>@Html.DisplayFor(x => t.TransactionType)</td>
+                     <td>@Html.DisplayFor(x => t.AccountNumber)</td>
+                     <td>@Html.DisplayFor(x => t.DestAccountNumber)</td>
+                     <td>@Html.DisplayFor(x => t.Amount)</td>
+                     <td>@Html.DisplayFor(x => t.Comment)</td>
+                     <td>@Html.DisplayFor(x => t.ModifyDate)</td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="AdminView">Back</a>
+</div>

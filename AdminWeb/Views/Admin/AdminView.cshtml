@@ -1,0 +1,54 @@
+@model IEnumerable<Customer>
+
+@{
+    ViewData["Title"] = "AdminView";
+}
+
+    <h1>Customer List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => customer.CustomerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => customer.PostCode)
+            </td>
+            <td>
+                <a asp-action="SchedulePay" class="btn btn-primary" asp-route-id="@customer.CustomerID">Schedule Pay</a> |
+                <a asp-action="Search" class="btn btn-primary" asp-route-id="@customer.CustomerID">Check Transacation</a> |
+                <a asp-action="AccountView" class="btn btn-primary" asp-route-id="@customer.CustomerID">Lock Accounts</a>
+            </td>
+        </tr>
+
+        }
+    </tbody>
+</table>
+
+<a asp-action="AllTransaction" class="btn btn-primary">Check All Transaction History</a>

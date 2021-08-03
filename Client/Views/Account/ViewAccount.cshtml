@@ -1,0 +1,38 @@
+﻿@model Account
+@{
+    ViewData["Title"] = "Account";
+}
+@{ 
+    await Html.RenderPartialAsync("_HeadNavBar");
+}
+<div>
+    <h1 class="display-4">Account Number : @Model.AccountNumber</h1>
+    <h3>Account Details : </h3>
+    <div class="text-center">
+        <table class="table">
+            <tr>
+                <th>Account Number :</th>
+                <td>@Html.DisplayFor(x => x.AccountNumber)</td>
+            </tr>
+            <tr>
+                <th>Account Type :</th>
+                <td>@Html.DisplayFor(x => x.AccountType)</td>
+            </tr>
+            <tr>
+                <th>Balance :</th>
+                <td>@Html.DisplayFor(x => x.Balance)</td>
+            </tr>
+            <tr>
+                <th>Customer ID :</th>
+                <td>@Html.DisplayFor(x => x.CustomerID)</td>
+            </tr>
+            <tr>
+                <th>Last Modify Date :</th>
+                <td>@Html.DisplayFor(x => x.ModifyDate)</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div>
+    <a asp-action="BackCustomer">Back to Customer</a>
+</div>

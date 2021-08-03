@@ -1,0 +1,44 @@
+﻿<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a asp-action="MyBillPays" asp-route-id="">MyBillPays</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a asp-action="BillPays" asp-route-id="">ToPayBill</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a asp-action="ViewTransaction" asp-route-id="AccountNumber">My Statement</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a asp-action="Transfer" asp-route-id="AccountNumber">Transfer</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a asp-action="Withdraw" asp-route-id="AccountNumber">Withdraw</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a asp-action="Deposit" asp-route-id="AccountNumber">Deposit</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-action="Privacy">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+    </nav>
+</header>

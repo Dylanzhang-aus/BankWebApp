@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Transaction>
+@{
+    ViewData["Title"] = "AllTransactionView";
+}
+<div>
+    <a asp-action="GetTransaction" class="btn btn-primary">Search by period</a>
+</div>
+
+<h2>Transaction List:</h2>
+<table class="table">
+    <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x => x.TransactionID)</th>
+                <th>@Html.DisplayNameFor(x => x.TransactionType)</th>
+                <th>@Html.DisplayNameFor(x => x.AccountNumber)</th>
+                <th>@Html.DisplayNameFor(x => x.DestAccountNumber)</th>
+                <th>@Html.DisplayNameFor(x => x.Amount)</th>
+                <th>@Html.DisplayNameFor(x => x.Comment)</th>
+                <th>@Html.DisplayNameFor(x => x.ModifyDate)</th>
+            </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+               <tr>
+                    <td>@Html.DisplayFor(x => t.TransactionID)</td>
+                    <td>@Html.DisplayFor(x => t.TransactionType)</td>
+                    <td>@Html.DisplayFor(x => t.AccountNumber)</td>
+                    <td>@Html.DisplayFor(x => t.DestAccountNumber)</td>
+                    <td>@Html.DisplayFor(x => t.Amount)</td>
+                    <td>@Html.DisplayFor(x => t.Comment)</td>
+                    <td>@Html.DisplayFor(x => t.ModifyDate)</td>
+                </tr>
+
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="AdminView">Back</a>
+</div>

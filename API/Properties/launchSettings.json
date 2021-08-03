@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "BankApi": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/Admin",
+      "applicationUrl": "http://localhost:58154",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

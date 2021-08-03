@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BillPay>
+@{
+    ViewData["Title"] = "ViewPayBill";
+}
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Payee</th>
+                <th>Amount</th>
+                <th>Schedule Date</th>
+                <th>Period</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+             {
+                <tr>
+                    <th scope="row"> @b.Payee.PayeeName</th>
+                    <th>@b.Amount.ToString("0.00")$</th>
+                    <th>@b.ScheduleDate</th>
+                    <th>@b.Period</th>
+                    <th>@b.Status</th>
+                    <td>
+                        <div class="text-center">
+                            <a class="btn btn-primary"
+                               asp-action="Modify" asp-route-id="@b.BillPayID">Modify</a>
+                            ||
+                            <a class="btn btn-primary"
+                               asp-action="Delete" asp-route-id="@b.BillPayID">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+             }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="BackAccount">Back to Accounts</a>
+</div>
